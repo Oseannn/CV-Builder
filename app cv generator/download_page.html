@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>ResumeBuilder - Download</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: {
+                DEFAULT: "#1e293b",
+                50: "#f8fafc",
+                100: "#f1f5f9",
+                200: "#e2e8f0",
+                300: "#cbd5e1",
+                400: "#94a3b8",
+                500: "#64748b",
+                600: "#475569",
+                700: "#334155",
+                800: "#1e293b",
+                900: "#0f172a",
+              },
+              "background-light": "#f8fafc",
+              "background-dark": "#0b1120",
+              "text-light": "#0f172a",
+              "text-dark": "#f8fafc",
+            },
+            fontFamily: {
+              display: ["Inter"],
+            },
+            borderRadius: {
+              DEFAULT: "0.5rem",
+              lg: "0.75rem",
+              xl: "1rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark"
+  >
+    <div class="flex flex-col min-h-screen">
+      <header class="border-b border-gray-200 dark:border-gray-800">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex items-center justify-between h-16">
+            <a href="index.html" class="flex items-center gap-3">
+              <svg
+                class="h-8 w-8 text-primary-800 dark:text-primary-100"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.536L16.732 3.732z"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>
+              </svg>
+              <h1 class="text-xl font-semibold text-gray-900 dark:text-white">
+                ResumeBuilder
+              </h1>
+            </a>
+            <nav class="hidden md:flex items-center gap-8">
+              <a
+                class="text-base font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+                href="index.html"
+                >Accueil</a
+              >
+              <a
+                class="text-base font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+                href="template_resume.html"
+                >Modèles</a
+              >
+              <a
+                class="text-base font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+                href="annuaire.html"
+                >Annuaire</a
+              >
+            </nav>
+            <div class="flex items-center gap-4">
+              <button
+                class="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                onclick="toggleMobileMenu()"
+                aria-label="Ouvrir le menu de navigation"
+              >
+                <svg
+                  class="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 6h16M4 12h16M4 18h16"
+                  ></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- Mobile menu -->
+        <div
+          id="mobile-menu"
+          class="md:hidden hidden bg-background-light dark:bg-background-dark border-t border-gray-200 dark:border-gray-700"
+        >
+          <div class="px-4 py-2 space-y-1">
+            <a
+              href="index.html"
+              class="block px-3 py-2 text-base font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg"
+              >Accueil</a
+            >
+            <a
+              href="template_resume.html"
+              class="block px-3 py-2 text-base font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg"
+              >Modèles</a
+            >
+            <a
+              href="annuaire.html"
+              class="block px-3 py-2 text-base font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg"
+              >Annuaire</a
+            >
+          </div>
+        </div>
+      </header>
+      <main class="flex-grow">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+          <div class="max-w-2xl mx-auto text-center">
+            <span class="material-symbols-outlined text-7xl text-primary">
+              check_circle
+            </span>
+            <h2
+              class="mt-4 text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl"
+            >
+              Votre CV est prêt !
+            </h2>
+            <p class="mt-4 text-lg leading-8 text-gray-600 dark:text-gray-400">
+              Téléchargez votre CV dans le format de votre choix et commencez à
+              postuler pour des emplois.
+            </p>
+            <div class="mt-10 space-y-6">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <button
+                  class="flex w-full items-center justify-center gap-3 rounded-lg bg-primary px-8 py-3 text-base font-bold text-white shadow-sm transition-colors hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                >
+                  <span class="material-symbols-outlined">picture_as_pdf</span>
+                  Télécharger PDF
+                </button>
+                <button
+                  class="flex w-full items-center justify-center gap-3 rounded-lg bg-primary/10 dark:bg-primary/20 px-8 py-3 text-base font-bold text-primary shadow-sm transition-colors hover:bg-primary/20 dark:hover:bg-primary/30 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                >
+                  <span class="material-symbols-outlined">description</span>
+                  Télécharger Word
+                </button>
+              </div>
+              <button
+                class="flex w-full max-w-xs mx-auto items-center justify-center gap-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-transparent px-8 py-3 text-base font-bold text-gray-700 dark:text-gray-300 shadow-sm transition-colors hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+              >
+                <span class="material-symbols-outlined">share</span>
+                Partager le CV
+              </button>
+            </div>
+            <p class="mt-10 text-sm text-gray-500 dark:text-gray-500">
+              Votre CV sera disponible pendant 7 jours. Aucun compte requis.
+            </p>
+          </div>
+        </div>
+      </main>
+      <footer
+        class="bg-gray-100 dark:bg-gray-900/50 border-t border-gray-200 dark:border-gray-800"
+      >
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
+          <div
+            class="flex flex-col items-center justify-between gap-4 md:flex-row"
+          >
+            <div
+              class="flex flex-wrap justify-center gap-x-6 gap-y-2 md:order-2"
+            >
+              <a
+                class="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
+                href="#"
+                >Mentions légales</a
+              >
+              <a
+                class="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
+                href="#"
+                >Confidentialité</a
+              >
+            </div>
+            <p
+              class="text-center text-sm text-gray-600 dark:text-gray-400 md:order-1"
+            >
+              © 2025 ResumeBuilder. Un outil simple pour des CV parfaits.
+            </p>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script>
+      function toggleMobileMenu() {
+        const mobileMenu = document.getElementById("mobile-menu");
+        mobileMenu.classList.toggle("hidden");
+      }
+    </script>
+  </body>
+</html>

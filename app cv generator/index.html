@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>ResumeBuilder - Créez un CV percutant en quelques minutes</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: {
+                DEFAULT: "#1e293b",
+                50: "#f8fafc",
+                100: "#f1f5f9",
+                200: "#e2e8f0",
+                300: "#cbd5e1",
+                400: "#94a3b8",
+                500: "#64748b",
+                600: "#475569",
+                700: "#334155",
+                800: "#1e293b",
+                900: "#0f172a",
+              },
+              "background-light": "#f8fafc",
+              "background-dark": "#0b1120",
+              "text-light": "#0f172a",
+              "text-dark": "#f8fafc",
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.5rem",
+              lg: "0.75rem",
+              xl: "1rem",
+              full: "9999px",
+            },
+            boxShadow: {
+              "glow-primary": "0 0 20px 5px rgba(30, 41, 59, 0.2)",
+            },
+          },
+        },
+      };
+    </script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-background-light dark:bg-background-dark font-sans text-text-light dark:text-text-dark antialiased"
+  >
+    <div class="relative flex min-h-screen w-full flex-col">
+      <header
+        class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm"
+      >
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="flex h-20 items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3">
+              <svg
+                class="h-8 w-8 text-primary-800 dark:text-primary-100"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.536L16.732 3.732z"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>
+              </svg>
+              <h2 class="text-xl font-semibold text-gray-900 dark:text-white">
+                ResumeBuilder
+              </h2>
+            </a>
+            <nav class="hidden md:flex items-center gap-8">
+              <a
+                class="text-base font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+                href="index.html"
+                >Accueil</a
+              >
+              <a
+                class="text-base font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+                href="template_resume.html"
+                >Modèles</a
+              >
+              <a
+                class="text-base font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+                href="annuaire.html"
+                >Annuaire</a
+              >
+            </nav>
+            <div class="flex items-center gap-4">
+              <button
+                class="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                onclick="toggleMobileMenu()"
+              >
+                <svg
+                  class="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 6h16M4 12h16M4 18h16"
+                  ></path>
+                </svg>
+              </button>
+              <button
+                class="bg-primary-800 text-white text-base font-medium py-2.5 px-6 rounded-lg hover:bg-primary-900 transition-colors duration-300 hidden md:block"
+              >
+                Commencer
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- Mobile menu -->
+        <div
+          id="mobile-menu"
+          class="md:hidden hidden bg-background-light dark:bg-background-dark border-t border-gray-200 dark:border-gray-700"
+        >
+          <div class="px-4 py-2 space-y-1">
+            <a
+              href="index.html"
+              class="block px-3 py-2 text-base font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg"
+              >Accueil</a
+            >
+            <a
+              href="template_resume.html"
+              class="block px-3 py-2 text-base font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg"
+              >Modèles</a
+            >
+            <a
+              href="annuaire.html"
+              class="block px-3 py-2 text-base font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg"
+              >Annuaire</a
+            >
+          </div>
+        </div>
+      </header>
+      <main class="flex-grow">
+        <section class="relative">
+          <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24 md:py-40">
+            <div class="mx-auto max-w-3xl text-center">
+              <h1
+                class="text-4xl font-bold text-text-light dark:text-text-dark sm:text-5xl md:text-6xl tracking-tight leading-tight"
+              >
+                Créez un CV qui ouvre des portes
+              </h1>
+              <p class="mt-6 text-lg text-gray-600 dark:text-gray-400">
+                Notre outil simple et intuitif vous aide à concevoir un CV
+                professionnel en quelques minutes. Sans inscription, sans
+                tracas.
+              </p>
+              <div
+                class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
+              >
+                <a
+                  class="inline-flex w-full sm:w-auto items-center justify-center gap-2 bg-primary-800 text-white text-lg font-semibold py-4 px-10 rounded-lg hover:bg-primary-900 transition-colors duration-300 transform hover:scale-105 shadow-lg"
+                  href="template_resume.html"
+                >
+                  <span class="material-symbols-outlined">description</span>
+                  Créer mon CV
+                </a>
+              </div>
+              <p class="text-sm text-gray-500 mt-17 sm:mt-0">
+                100% gratuit. 100% made in GABON
+              </p>
+            </div>
+          </div>
+        </section>
+        <section
+          class="py-16 sm:py-24 bg-background-light dark:bg-background-dark border-t border-gray-100 dark:border-gray-900"
+        >
+          <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+              <h2
+                class="text-3xl font-bold tracking-tight text-text-light dark:text-text-dark sm:text-4xl"
+              >
+                Conçu pour la simplicité et l'efficacité
+              </h2>
+              <p
+                class="mt-4 max-w-2xl mx-auto text-lg text-gray-600 dark:text-gray-400"
+              >
+                Focalisez-vous sur l'essentiel : votre contenu. Nous nous
+                occupons du reste.
+              </p>
+            </div>
+            <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
+              <div class="text-center">
+                <div
+                  class="flex items-center justify-center h-12 w-12 rounded-lg bg-primary-100 text-primary-800 dark:bg-primary-900/50 dark:text-primary-300 mx-auto mb-4"
+                >
+                  <span class="material-symbols-outlined text-3xl"
+                    >edit_document</span
+                  >
+                </div>
+                <h3
+                  class="text-lg font-semibold text-text-light dark:text-white"
+                >
+                  Édition en temps réel
+                </h3>
+                <p class="mt-2 text-base text-gray-600 dark:text-gray-400">
+                  Voyez vos modifications instantanément et ajustez votre CV à
+                  la perfection sans effort.
+                </p>
+              </div>
+              <div class="text-center">
+                <div
+                  class="flex items-center justify-center h-12 w-12 rounded-lg bg-primary-100 text-primary-800 dark:bg-primary-900/50 dark:text-primary-300 mx-auto mb-4"
+                >
+                  <span class="material-symbols-outlined text-3xl"
+                    >palette</span
+                  >
+                </div>
+                <h3
+                  class="text-lg font-semibold text-text-light dark:text-white"
+                >
+                  Designs professionnels
+                </h3>
+                <p class="mt-2 text-base text-gray-600 dark:text-gray-400">
+                  Choisissez parmi une sélection de modèles sobres et élégants,
+                  conçus pour les recruteurs.
+                </p>
+              </div>
+              <div class="text-center">
+                <div
+                  class="flex items-center justify-center h-12 w-12 rounded-lg bg-primary-100 text-primary-800 dark:bg-primary-900/50 dark:text-primary-300 mx-auto mb-4"
+                >
+                  <span class="material-symbols-outlined text-3xl"
+                    >lock_person</span
+                  >
+                </div>
+                <h3
+                  class="text-lg font-semibold text-text-light dark:text-white"
+                >
+                  Confidentialité totale
+                </h3>
+                <p class="mt-2 text-base text-gray-600 dark:text-gray-400">
+                  Aucune création de compte nécessaire. Vos données restent sur
+                  votre machine, point final.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="py-16 sm:py-24 bg-gray-50 dark:bg-gray-900/50">
+          <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+              <h2
+                class="text-2xl font-semibold tracking-tight text-text-light dark:text-text-dark sm:text-3xl"
+              >
+                Ils ont créé leur CV avec nous
+              </h2>
+              <p
+                class="mt-3 max-w-2xl mx-auto text-lg text-gray-600 dark:text-gray-400"
+              >
+                Découvrez pourquoi des centaines d'utilisateurs nous font
+                confiance.
+              </p>
+            </div>
+            <div class="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+              <div
+                class="p-6 bg-white dark:bg-gray-800/50 rounded-lg border border-gray-200 dark:border-gray-700/50 shadow-sm"
+              >
+                <p class="text-base text-gray-700 dark:text-gray-300">
+                  "Simple, efficace, et le résultat est ultra-professionnel.
+                  J'ai décroché deux entretiens en une semaine grâce à mon
+                  nouveau CV."
+                </p>
+                <div class="flex items-center gap-3 mt-4">
+                  <img
+                    alt="Photo de profil de Marc D."
+                    class="w-10 h-10 rounded-full"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_Z3pw55KeKmXoCMGMABJFAm7-1ZmLiASSiW-6vfTStbzz0LlAY5rx-eMvqDWfgELnNbmjjs-7IAIslfylTL5iTodGtQI-F-lZbWJG8foNRoAZQ4XIrf-aB1874MQ3AbqXW1Wv33TxGXAN9AVMsmEhGamyZ7NyL0n4OsWX8kfdp8VqmsRQlbYdQ-6O-HqwnDus4fRAigY_ZPnHwZkf8eMkQRETp9A_aqUgO9v61E65ujRnJJsS3dxYOeSMecsm8CtqfDNTwKJjWtvH"
+                  />
+                  <div>
+                    <h3
+                      class="font-semibold text-sm text-text-light dark:text-white"
+                    >
+                      Marc D.
+                    </h3>
+                    <p class="text-xs text-gray-500 dark:text-gray-400">
+                      Chef de Projet
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="p-6 bg-white dark:bg-gray-800/50 rounded-lg border border-gray-200 dark:border-gray-700/50 shadow-sm"
+              >
+                <p class="text-base text-gray-700 dark:text-gray-300">
+                  "Le meilleur générateur de CV que j'ai pu tester. La
+                  non-obligation de s'inscrire est un vrai plus pour la
+                  confidentialité."
+                </p>
+                <div class="flex items-center gap-3 mt-4">
+                  <img
+                    alt="Photo de profil de Sarah L."
+                    class="w-10 h-10 rounded-full"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDJRFErHEr1WlIgDzUKwZT_v0LP4g2Bhq81nM1QZYblG_B-5WS55IpgP8upAgNkqonrrD_7n4sHxejsFDc0PPtc3cSQuxAe7uivmTlbIvipQWAi7Bb0Qt_jQxoMkIwad-9TLH2s1A7Nu2fnvm6URfvuybKJPYjpFps2Uqe_yyn2GdM06hDvaaSVVlJG9CpbMcKQRe4H74f0UZF5m16i5i7KQOyf4TL8zcZvjbigAAyty8sHLV-i9bOlG7aTR50RpV6vbislzXTLeDO"
+                  />
+                  <div>
+                    <h3
+                      class="font-semibold text-sm text-text-light dark:text-white"
+                    >
+                      Sarah L.
+                    </h3>
+                    <p class="text-xs text-gray-500 dark:text-gray-400">
+                      Développeuse Web
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="p-6 bg-white dark:bg-gray-800/50 rounded-lg border border-gray-200 dark:border-gray-700/50 shadow-sm"
+              >
+                <p class="text-base text-gray-700 dark:text-gray-300">
+                  "Rapide, intuitif et le design est parfait. Je recommande à
+                  100% pour toute personne cherchant un outil direct et sans
+                  fioritures."
+                </p>
+                <div class="flex items-center gap-3 mt-4">
+                  <img
+                    alt="Photo de profil de Alex M."
+                    class="w-10 h-10 rounded-full"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDn9w1vA0hK1Tad2er-bR5tHc8pc6EdCmEW2S-qozrspda-98xR3Fp-MutCT4g0d_VExmirWjIGNNS1Z28VAr6QflW3mRivSKFq9P2EZMlNH_8WKCVErc56bhDyEglr3ytE9jdHkjGXeS3Ox_uyfhfGGGOKZ_msHVP42Vx69QGKpUQ9aVMiGwdRS9gAJImpuY2QdFqr83v5KkUAKn4sC3Pk029PUtBIvCWIjfcskB1h4WBWGqj097zCnHuyvvBdegmLpSVmii4LnB6"
+                  />
+                  <div>
+                    <h3
+                      class="font-semibold text-sm text-text-light dark:text-white"
+                    >
+                      Alex M.
+                    </h3>
+                    <p class="text-xs text-gray-500 dark:text-gray-400">
+                      UX Designer
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="bg-primary-800 dark:bg-primary-900 text-white">
+          <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 md:py-20">
+            <div class="text-center">
+              <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">
+                Prêt à décrocher votre prochain poste ?
+              </h2>
+              <p class="mt-4 max-w-2xl mx-auto text-lg text-primary-200">
+                Ne laissez pas un CV médiocre vous freiner. Créez un document
+                qui reflète votre vrai potentiel.
+              </p>
+              <div class="mt-8">
+                <a
+                  class="inline-flex items-center justify-center gap-2 bg-white text-primary-800 text-lg font-semibold py-4 px-10 rounded-lg hover:bg-gray-200 transition-colors duration-300 transform hover:scale-105 shadow-2xl"
+                  href="#"
+                >
+                  <span class="material-symbols-outlined">auto_awesome</span>
+                  Créer mon CV gratuitement
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer
+        class="bg-gray-100 dark:bg-gray-900/50 border-t border-gray-200 dark:border-gray-800"
+      >
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
+          <div
+            class="flex flex-col items-center justify-between gap-4 md:flex-row"
+          >
+            <div
+              class="flex flex-wrap justify-center gap-x-6 gap-y-2 md:order-2"
+            >
+              <a
+                class="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
+                href="#"
+                >Mentions légales</a
+              >
+              <a
+                class="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
+                href="#"
+                >Confidentialité</a
+              >
+            </div>
+            <p
+              class="text-center text-sm text-gray-600 dark:text-gray-400 md:order-1"
+            >
+              © 2025 ResumeBuilder. Un outil simple pour des CV parfaits.
+            </p>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script>
+      function toggleMobileMenu() {
+        const mobileMenu = document.getElementById("mobile-menu");
+        mobileMenu.classList.toggle("hidden");
+      }
+    </script>
+  </body>
+</html>

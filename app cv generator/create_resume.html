@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Resume Builder</title>
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link
+      as="style"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter:wght@400;500;700;900"
+      onload="this.rel='stylesheet'"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: {
+                DEFAULT: "#1e293b",
+                50: "#f8fafc",
+                100: "#f1f5f9",
+                200: "#e2e8f0",
+                300: "#cbd5e1",
+                400: "#94a3b8",
+                500: "#64748b",
+                600: "#475569",
+                700: "#334155",
+                800: "#1e293b",
+                900: "#0f172a",
+              },
+              "background-light": "#f8fafc",
+              "background-dark": "#0b1120",
+              "text-light": "#0f172a",
+              "text-dark": "#f8fafc",
+              "content-light": "#0f172a",
+              "content-dark": "#f8fafc",
+              "subtle-light": "#e2e8f0",
+              "subtle-dark": "#1e293b",
+              "placeholder-light": "#64748b",
+              "placeholder-dark": "#94a3b8",
+            },
+            fontFamily: {
+              display: ["Inter"],
+            },
+            borderRadius: {
+              DEFAULT: "0.5rem",
+              lg: "0.75rem",
+              xl: "1rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .form-input {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+      }
+      .group[data-state="open"] .group-open\:rotate-180 {
+        transform: rotate(180deg);
+      }
+      .group[data-state="open"] .group-open\:block {
+        display: block;
+      }
+      .group .group-open\:block {
+        display: none;
+      }
+    </style>
+  </head>
+  <body
+    class="font-display bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark"
+  >
+    <div class="flex flex-col min-h-screen">
+      <header class="border-b border-subtle-light dark:border-subtle-dark">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex items-center justify-between h-16">
+            <a href="index.html" class="flex items-center gap-3">
+              <svg
+                class="h-8 w-8 text-primary-800 dark:text-primary-100"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.536L16.732 3.732z"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>
+              </svg>
+              <h1 class="text-xl font-semibold text-gray-900 dark:text-white">
+                ResumeBuilder
+              </h1>
+            </a>
+            <nav class="hidden md:flex items-center gap-8">
+              <a
+                class="text-base font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+                href="index.html"
+                >Accueil</a
+              >
+              <a
+                class="text-base font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+                href="template_resume.html"
+                >Modèles</a
+              >
+              <a
+                class="text-base font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+                href="annuaire.html"
+                >Annuaire</a
+              >
+            </nav>
+            <div class="flex items-center gap-4">
+              <button
+                class="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                onclick="toggleMobileMenu()"
+                aria-label="Ouvrir le menu de navigation"
+              >
+                <svg
+                  class="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 6h16M4 12h16M4 18h16"
+                  ></path>
+                </svg>
+              </button>
+          </div>
+        </div>
+        <!-- Mobile menu -->
+        <div
+          id="mobile-menu"
+          class="md:hidden hidden bg-background-light dark:bg-background-dark border-t border-gray-200 dark:border-gray-700"
+        >
+          <div class="px-4 py-2 space-y-1">
+            <a
+              href="index.html"
+              class="block px-3 py-2 text-base font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg"
+              >Accueil</a
+            >
+            <a
+              href="template_resume.html"
+              class="block px-3 py-2 text-base font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg"
+              >Modèles</a
+            >
+            <a
+              href="annuaire.html"
+              class="block px-3 py-2 text-base font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg"
+              >Annuaire</a
+            >
+          </div>
+        </div>
+      </header>
+      <main class="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <div class="max-w-3xl mx-auto">
+          <h2 class="text-3xl font-bold mb-8 text-center">Créez votre CV</h2>
+          <form class="space-y-6">
+            <div
+              class="bg-white dark:bg-subtle-dark rounded-xl shadow-sm group"
+              data-state="open"
+              id="personal-details-group"
+            >
+              <button
+                class="w-full flex justify-between items-center p-6 text-left"
+                onclick="toggleAccordion('personal-details-group')"
+                type="button"
+              >
+                <div class="flex items-center gap-4">
+                  <span class="material-symbols-outlined text-primary text-3xl"
+                    >person</span
+                  >
+                  <div>
+                    <h3 class="text-lg font-bold">En-tête professionnel</h3>
+                    <p
+                      class="text-sm text-placeholder-light dark:text-placeholder-dark"
+                    >
+                      Nom, Prénom, Titre, Coordonnées, LinkedIn...
+                    </p>
+                  </div>
+                </div>
+                <span
+                  class="material-symbols-outlined group-open:rotate-180 transition-transform"
+                  >expand_more</span
+                >
+              </button>
+              <div class="px-6 pb-6 group-open:block">
+                <div class="space-y-4">
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <label
+                        class="block text-sm font-medium text-content-light dark:text-content-dark mb-1"
+                        for="firstname"
+                        >Prénom</label
+                      >
+                      <input
+                        class="form-input w-full bg-subtle-light dark:bg-background-dark border-none rounded-lg h-12 px-4 placeholder-placeholder-light dark:placeholder-placeholder-dark focus:ring-2 focus:ring-primary"
+                        id="firstname"
+                        placeholder="Prénom"
+                        type="text"
+                      />
+                    </div>
+                    <div>
+                      <label
+                        class="block text-sm font-medium text-content-light dark:text-content-dark mb-1"
+                        for="lastname"
+                        >Nom</label
+                      >
+                      <input
+                        class="form-input w-full bg-subtle-light dark:bg-background-dark border-none rounded-lg h-12 px-4 placeholder-placeholder-light dark:placeholder-placeholder-dark focus:ring-2 focus:ring-primary"
+                        id="lastname"
+                        placeholder="Nom"
+                        type="text"
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <label
+                      class="block text-sm font-medium text-content-light dark:text-content-dark mb-1"
+                      for="title"
+                      >Titre</label
+                    >
+                    <input
+                      class="form-input w-full bg-subtle-light dark:bg-background-dark border-none rounded-lg h-12 px-4 placeholder-placeholder-light dark:placeholder-placeholder-dark focus:ring-2 focus:ring-primary"
+                      id="title"
+                      placeholder="ex: Développeur Web Full-Stack"
+                      type="text"
+                    />
+                  </div>
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <label
+                        class="block text-sm font-medium text-content-light dark:text-content-dark mb-1"
+                        for="email"
+                        >Adresse email</label
+                      >
+                      <input
+                        class="form-input w-full bg-subtle-light dark:bg-background-dark border-none rounded-lg h-12 px-4 placeholder-placeholder-light dark:placeholder-placeholder-dark focus:ring-2 focus:ring-primary"
+                        id="email"
+                        placeholder="Adresse email"
+                        type="email"
+                      />
+                    </div>
+                    <div>
+                      <label
+                        class="block text-sm font-medium text-content-light dark:text-content-dark mb-1"
+                        for="phone"
+                        >Numéro de téléphone</label
+                      >
+                      <input
+                        class="form-input w-full bg-subtle-light dark:bg-background-dark border-none rounded-lg h-12 px-4 placeholder-placeholder-light dark:placeholder-placeholder-dark focus:ring-2 focus:ring-primary"
+                        id="phone"
+                        placeholder="Numéro de téléphone"
+                        type="tel"
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <label
+                      class="block text-sm font-medium text-content-light dark:text-content-dark mb-1"
+                      for="city"
+                      >Ville</label
+                    >
+                    <input
+                      class="form-input w-full bg-subtle-light dark:bg-background-dark border-none rounded-lg h-12 px-4 placeholder-placeholder-light dark:placeholder-placeholder-dark focus:ring-2 focus:ring-primary"
+                      id="city"
+                      placeholder="ex: Libreville"
+                      type="text"
+                    />
+                  </div>
+                  <div>
+                    <label
+                      class="block text-sm font-medium text-content-light dark:text-content-dark mb-1"
+                      for="linkedin"
+                      >Lien LinkedIn</label
+                    >
+                    <input
+                      class="form-input w-full bg-subtle-light dark:bg-background-dark border-none rounded-lg h-12 px-4 placeholder-placeholder-light dark:placeholder-placeholder-dark focus:ring-2 focus:ring-primary"
+                      id="linkedin"
+                      placeholder="URL de votre profil LinkedIn"
+                      type="url"
+                    />
+                  </div>
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <label
+                        class="block text-sm font-medium text-content-light dark:text-content-dark mb-1"
+                        for="pnpe"
+                        >Numéro PNPE (Facultatif)</label
+                      >
+                      <input
+                        class="form-input w-full bg-subtle-light dark:bg-background-dark border-none rounded-lg h-12 px-4 placeholder-placeholder-light dark:placeholder-placeholder-dark focus:ring-2 focus:ring-primary"
+                        id="pnpe"
+                        placeholder="Numéro PNPE (Facultatif)"
+                        type="text"
+                      />
+                    </div>
+                    <div>
+                      <label
+                        class="block text-sm font-medium text-content-light dark:text-content-dark mb-1"
+                        for="driving-license"
+                        >Permis (Facultatif)</label
+                      >
+                      <input
+                        class="form-input w-full bg-subtle-light dark:bg-background-dark border-none rounded-lg h-12 px-4 placeholder-placeholder-light dark:placeholder-placeholder-dark focus:ring-2 focus:ring-primary"
+                        id="driving-license"
+                        placeholder="Permis (Facultatif)"
+                        type="text"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="bg-white dark:bg-subtle-dark rounded-xl shadow-sm group"
+              id="professional-summary-group"
+            >
+              <button
+                class="w-full flex justify-between items-center p-6 text-left"
+                onclick="toggleAccordion('professional-summary-group')"
+                type="button"
+              >
+                <div class="flex items-center gap-4">
+                  <span class="material-symbols-outlined text-primary text-3xl"
+                    >badge</span
+                  >
+                  <div>
+                    <h3 class="text-lg font-bold">Accroche professionnelle</h3>
+                    <p
+                      class="text-sm text-placeholder-light dark:text-placeholder-dark"
+                    >
+                      Un bref résumé de votre carrière
+                    </p>
+                  </div>
+                </div>
+                <span class="material-symbols-outlined transition-transform"
+                  >expand_more</span
+                >
+              </button>
+              <div class="px-6 pb-6 hidden group-open:block">
+                <label
+                  class="block text-sm font-medium text-content-light dark:text-content-dark mb-1"
+                  for="summary"
+                  >Résumé</label
+                >
+                <textarea
+                  class="form-input w-full bg-subtle-light dark:bg-background-dark border-none rounded-lg min-h-[120px] p-4 placeholder-placeholder-light dark:placeholder-placeholder-dark focus:ring-2 focus:ring-primary"
+                  id="summary"
+                  placeholder="Rédigez un court résumé de votre expérience professionnelle..."
+                ></textarea>
+              </div>
+            </div>
+            <div
+              class="bg-white dark:bg-subtle-dark rounded-xl shadow-sm group"
+              id="work-experience-group"
+            >
+              <button
+                class="w-full flex justify-between items-center p-6 text-left"
+                onclick="toggleAccordion('work-experience-group')"
+                type="button"
+              >
+                <div class="flex items-center gap-4">
+                  <span class="material-symbols-outlined text-primary text-3xl"
+                    >work</span
+                  >
+                  <div>
+                    <h3 class="text-lg font-bold">
+                      Expériences professionnelles
+                    </h3>
+                    <p
+                      class="text-sm text-placeholder-light dark:text-placeholder-dark"
+                    >
+                      Votre historique de postes pertinents
+                    </p>
+                  </div>
+                </div>
+                <span class="material-symbols-outlined transition-transform"
+                  >expand_more</span
+                >
+              </button>
+              <div class="px-6 pb-6 hidden group-open:block">
+                <div class="space-y-4">
+                  <div>
+                    <label
+                      class="block text-sm font-medium text-content-light dark:text-content-dark mb-1"
+                      for="job-title"
+                      >Intitulé du poste</label
+                    >
+                    <input
+                      class="form-input w-full bg-subtle-light dark:bg-background-dark border-none rounded-lg h-12 px-4 placeholder-placeholder-light dark:placeholder-placeholder-dark focus:ring-2 focus:ring-primary"
+                      id="job-title"
+                      placeholder="Intitulé du poste"
+                      type="text"
+                    />
+                  </div>
+                  <div>
+                    <label
+                      class="block text-sm font-medium text-content-light dark:text-content-dark mb-1"
+                      for="company"
+                      >Entreprise</label
+                    >
+                    <input
+                      class="form-input w-full bg-subtle-light dark:bg-background-dark border-none rounded-lg h-12 px-4 placeholder-placeholder-light dark:placeholder-placeholder-dark focus:ring-2 focus:ring-primary"
+                      id="company"
+                      placeholder="Entreprise"
+                      type="text"
+                    />
+                  </div>
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <label
+                        class="block text-sm font-medium text-content-light dark:text-content-dark mb-1"
+                        for="start-date-exp"
+                        >Date de début</label
+                      >
+                      <input
+                        class="form-input w-full bg-subtle-light dark:bg-background-dark border-none rounded-lg h-12 px-4 placeholder-placeholder-light dark:placeholder-placeholder-dark focus:ring-2 focus:ring-primary"
+                        id="start-date-exp"
+                        placeholder="ex: MM/AAAA"
+                        type="text"
+                      />
+                    </div>
+                    <div>
+                      <label
+                        class="block text-sm font-medium text-content-light dark:text-content-dark mb-1"
+                        for="end-date-exp"
+                        >Date de fin</label
+                      >
+                      <input
+                        class="form-input w-full bg-subtle-light dark:bg-background-dark border-none rounded-lg h-12 px-4 placeholder-placeholder-light dark:placeholder-placeholder-dark focus:ring-2 focus:ring-primary"
+                        id="end-date-exp"
+                        placeholder="ex: MM/AAAA ou Actuel"
+                        type="text"
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <label
+                      class="block text-sm font-medium text-content-light dark:text-content-dark mb-1"
+                      for="missions"
+                      >Missions</label
+                    >
+                    <textarea
+                      class="form-input w-full bg-subtle-light dark:bg-background-dark border-none rounded-lg min-h-[120px] p-4 placeholder-placeholder-light dark:placeholder-placeholder-dark focus:ring-2 focus:ring-primary"
+                      id="missions"
+                      placeholder="Décrivez vos missions et réalisations clés..."
+                    ></textarea>
+                  </div>
+                  <button
+                    class="text-primary font-medium text-sm"
+                    type="button"
+                  >
+                    + Ajouter une autre expérience
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div
+              class="bg-white dark:bg-subtle-dark rounded-xl shadow-sm group"
+              id="education-group"
+            >
+              <button
+                class="w-full flex justify-between items-center p-6 text-left"
+                onclick="toggleAccordion('education-group')"
+                type="button"
+              >
+                <div class="flex items-center gap-4">
+                  <span class="material-symbols-outlined text-primary text-3xl"
+                    >school</span
+                  >
+                  <div>
+                    <h3 class="text-lg font-bold">Formation</h3>
+                    <p
+                      class="text-sm text-placeholder-light dark:text-placeholder-dark"
+                    >
+                      Votre parcours académique
+                    </p>
+                  </div>
+                </div>
+                <span class="material-symbols-outlined transition-transform"
+                  >expand_more</span
+                >
+              </button>
+              <div class="px-6 pb-6 hidden group-open:block">
+                <div class="space-y-4">
+                  <div>
+                    <label
+                      class="block text-sm font-medium text-content-light dark:text-content-dark mb-1"
+                      for="school"
+                      >École ou Université</label
+                    >
+                    <input
+                      class="form-input w-full bg-subtle-light dark:bg-background-dark border-none rounded-lg h-12 px-4 placeholder-placeholder-light dark:placeholder-placeholder-dark focus:ring-2 focus:ring-primary"
+                      id="school"
+                      placeholder="École ou Université"
+                      type="text"
+                    />
+                  </div>
+                  <div>
+                    <label
+                      class="block text-sm font-medium text-content-light dark:text-content-dark mb-1"
+                      for="degree"
+                      >Diplôme</label
+                    >
+                    <input
+                      class="form-input w-full bg-subtle-light dark:bg-background-dark border-none rounded-lg h-12 px-4 placeholder-placeholder-light dark:placeholder-placeholder-dark focus:ring-2 focus:ring-primary"
+                      id="degree"
+                      placeholder="Diplôme"
+                      type="text"
+                    />
+                  </div>
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <label
+                        class="block text-sm font-medium text-content-light dark:text-content-dark mb-1"
+                        for="start-date-edu"
+                        >Date de début</label
+                      >
+                      <input
+                        class="form-input w-full bg-subtle-light dark:bg-background-dark border-none rounded-lg h-12 px-4 placeholder-placeholder-light dark:placeholder-placeholder-dark focus:ring-2 focus:ring-primary"
+                        id="start-date-edu"
+                        placeholder="ex: MM/AAAA"
+                        type="text"
+                      />
+                    </div>
+                    <div>
+                      <label
+                        class="block text-sm font-medium text-content-light dark:text-content-dark mb-1"
+                        for="end-date-edu"
+                        >Date de fin</label
+                      >
+                      <input
+                        class="form-input w-full bg-subtle-light dark:bg-background-dark border-none rounded-lg h-12 px-4 placeholder-placeholder-light dark:placeholder-placeholder-dark focus:ring-2 focus:ring-primary"
+                        id="end-date-edu"
+                        placeholder="ex: MM/AAAA"
+                        type="text"
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <label
+                      class="block text-sm font-medium text-content-light dark:text-content-dark mb-1"
+                      for="education-details"
+                      >Détails</label
+                    >
+                    <textarea
+                      class="form-input w-full bg-subtle-light dark:bg-background-dark border-none rounded-lg p-4 placeholder-placeholder-light dark:placeholder-placeholder-dark focus:ring-2 focus:ring-primary"
+                      id="education-details"
+                      placeholder="Mention, projets, etc."
+                    ></textarea>
+                  </div>
+                  <button
+                    class="text-primary font-medium text-sm"
+                    type="button"
+                  >
+                    + Ajouter une autre formation
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div
+              class="bg-white dark:bg-subtle-dark rounded-xl shadow-sm group"
+              id="skills-group"
+            >
+              <button
+                class="w-full flex justify-between items-center p-6 text-left"
+                onclick="toggleAccordion('skills-group')"
+                type="button"
+              >
+                <div class="flex items-center gap-4">
+                  <span class="material-symbols-outlined text-primary text-3xl"
+                    >construction</span
+                  >
+                  <div>
+                    <h3 class="text-lg font-bold">Compétences</h3>
+                    <p
+                      class="text-sm text-placeholder-light dark:text-placeholder-dark"
+                    >
+                      Hard skills, soft skills, outils...
+                    </p>
+                  </div>
+                </div>
+                <span class="material-symbols-outlined transition-transform"
+                  >expand_more</span
+                >
+              </button>
+              <div class="px-6 pb-6 hidden group-open:block">
+                <div class="space-y-4">
+                  <div>
+                    <label
+                      class="block text-sm font-medium text-content-light dark:text-content-dark mb-1"
+                      for="tech-skills"
+                      >Techniques (Hard Skills)</label
+                    >
+                    <textarea
+                      class="form-input w-full bg-subtle-light dark:bg-background-dark border-none rounded-lg p-4 placeholder-placeholder-light dark:placeholder-placeholder-dark focus:ring-2 focus:ring-primary"
+                      id="tech-skills"
+                      placeholder="ex: Langages de programmation (JavaScript, Python), Frameworks (React, Django)"
+                    ></textarea>
+                  </div>
+                  <div>
+                    <label
+                      class="block text-sm font-medium text-content-light dark:text-content-dark mb-1"
+                      for="methods-skills"
+                      >Méthodes</label
+                    >
+                    <textarea
+                      class="form-input w-full bg-subtle-light dark:bg-background-dark border-none rounded-lg p-4 placeholder-placeholder-light dark:placeholder-placeholder-dark focus:ring-2 focus:ring-primary"
+                      id="methods-skills"
+                      placeholder="ex: Agile, Scrum, Kanban, Design Thinking"
+                    ></textarea>
+                  </div>
+                  <div>
+                    <label
+                      class="block text-sm font-medium text-content-light dark:text-content-dark mb-1"
+                      for="tools-skills"
+                      >Outils informatiques</label
+                    >
+                    <textarea
+                      class="form-input w-full bg-subtle-light dark:bg-background-dark border-none rounded-lg p-4 placeholder-placeholder-light dark:placeholder-placeholder-dark focus:ring-2 focus:ring-primary"
+                      id="tools-skills"
+                      placeholder="ex: Git, Docker, Jira, Figma, Suite Office"
+                    ></textarea>
+                  </div>
+                  <div>
+                    <label
+                      class="block text-sm font-medium text-content-light dark:text-content-dark mb-1"
+                      for="soft-skills"
+                      >Soft Skills</label
+                    >
+                    <textarea
+                      class="form-input w-full bg-subtle-light dark:bg-background-dark border-none rounded-lg p-4 placeholder-placeholder-light dark:placeholder-placeholder-dark focus:ring-2 focus:ring-primary"
+                      id="soft-skills"
+                      placeholder="ex: Communication, Travail d'équipe, Résolution de problèmes, Créativité"
+                    ></textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="bg-white dark:bg-subtle-dark rounded-xl shadow-sm group"
+              id="languages-group"
+            >
+              <button
+                class="w-full flex justify-between items-center p-6 text-left"
+                onclick="toggleAccordion('languages-group')"
+                type="button"
+              >
+                <div class="flex items-center gap-4">
+                  <span class="material-symbols-outlined text-primary text-3xl"
+                    >language</span
+                  >
+                  <div>
+                    <h3 class="text-lg font-bold">Langues</h3>
+                    <p
+                      class="text-sm text-placeholder-light dark:text-placeholder-dark"
+                    >
+                      Vos compétences linguistiques
+                    </p>
+                  </div>
+                </div>
+                <span class="material-symbols-outlined transition-transform"
+                  >expand_more</span
+                >
+              </button>
+              <div class="px-6 pb-6 hidden group-open:block">
+                <div class="space-y-4">
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-end">
+                    <div>
+                      <label
+                        class="block text-sm font-medium text-content-light dark:text-content-dark mb-1"
+                        for="language-1"
+                        >Langue</label
+                      >
+                      <input
+                        class="form-input w-full bg-subtle-light dark:bg-background-dark border-none rounded-lg h-12 px-4 placeholder-placeholder-light dark:placeholder-placeholder-dark focus:ring-2 focus:ring-primary"
+                        id="language-1"
+                        placeholder="ex: Anglais"
+                        type="text"
+                      />
+                    </div>
+                    <div>
+                      <label
+                        class="block text-sm font-medium text-content-light dark:text-content-dark mb-1"
+                        for="level-1"
+                        >Niveau</label
+                      >
+                      <input
+                        class="form-input w-full bg-subtle-light dark:bg-background-dark border-none rounded-lg h-12 px-4 placeholder-placeholder-light dark:placeholder-placeholder-dark focus:ring-2 focus:ring-primary"
+                        id="level-1"
+                        placeholder="ex: B2 - Courant"
+                        type="text"
+                      />
+                    </div>
+                  </div>
+                  <button
+                    class="text-primary font-medium text-sm"
+                    type="button"
+                  >
+                    + Ajouter une autre langue
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div
+              class="bg-white dark:bg-subtle-dark rounded-xl shadow-sm group"
+              id="certifications-group"
+            >
+              <button
+                class="w-full flex justify-between items-center p-6 text-left"
+                onclick="toggleAccordion('certifications-group')"
+                type="button"
+              >
+                <div class="flex items-center gap-4">
+                  <span class="material-symbols-outlined text-primary text-3xl"
+                    >workspace_premium</span
+                  >
+                  <div>
+                    <h3 class="text-lg font-bold">Certifications</h3>
+                    <p
+                      class="text-sm text-placeholder-light dark:text-placeholder-dark"
+                    >
+                      Vos certifications professionnelles
+                    </p>
+                  </div>
+                </div>
+                <span class="material-symbols-outlined transition-transform"
+                  >expand_more</span
+                >
+              </button>
+              <div class="px-6 pb-6 hidden group-open:block">
+                <div class="space-y-4">
+                  <div>
+                    <label
+                      class="block text-sm font-medium text-content-light dark:text-content-dark mb-1"
+                      for="cert-name"
+                      >Nom de la certification</label
+                    >
+                    <input
+                      class="form-input w-full bg-subtle-light dark:bg-background-dark border-none rounded-lg h-12 px-4 placeholder-placeholder-light dark:placeholder-placeholder-dark focus:ring-2 focus:ring-primary"
+                      id="cert-name"
+                      placeholder="Nom de la certification"
+                      type="text"
+                    />
+                  </div>
+                  <div>
+                    <label
+                      class="block text-sm font-medium text-content-light dark:text-content-dark mb-1"
+                      for="cert-org"
+                      >Organisme de certification</label
+                    >
+                    <input
+                      class="form-input w-full bg-subtle-light dark:bg-background-dark border-none rounded-lg h-12 px-4 placeholder-placeholder-light dark:placeholder-placeholder-dark focus:ring-2 focus:ring-primary"
+                      id="cert-org"
+                      placeholder="Organisme de certification"
+                      type="text"
+                    />
+                  </div>
+                  <div>
+                    <label
+                      class="block text-sm font-medium text-content-light dark:text-content-dark mb-1"
+                      for="cert-date"
+                      >Date d'obtention</label
+                    >
+                    <input
+                      class="form-input w-full bg-subtle-light dark:bg-background-dark border-none rounded-lg h-12 px-4 placeholder-placeholder-light dark:placeholder-placeholder-dark focus:ring-2 focus:ring-primary"
+                      id="cert-date"
+                      placeholder="Date d'obtention"
+                      type="text"
+                    />
+                  </div>
+                  <button
+                    class="text-primary font-medium text-sm"
+                    type="button"
+                  >
+                    + Ajouter une autre certification
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div
+              class="bg-white dark:bg-subtle-dark rounded-xl shadow-sm group"
+              id="projects-group"
+            >
+              <button
+                class="w-full flex justify-between items-center p-6 text-left"
+                onclick="toggleAccordion('projects-group')"
+                type="button"
+              >
+                <div class="flex items-center gap-4">
+                  <span class="material-symbols-outlined text-primary text-3xl"
+                    >lightbulb</span
+                  >
+                  <div>
+                    <h3 class="text-lg font-bold">
+                      Projets académiques ou personnels
+                    </h3>
+                    <p
+                      class="text-sm text-placeholder-light dark:text-placeholder-dark"
+                    >
+                      Présentez vos projets marquants
+                    </p>
+                  </div>
+                </div>
+                <span class="material-symbols-outlined transition-transform"
+                  >expand_more</span
+                >
+              </button>
+              <div class="px-6 pb-6 hidden group-open:block">
+                <div class="space-y-4">
+                  <div>
+                    <label
+                      class="block text-sm font-medium text-content-light dark:text-content-dark mb-1"
+                      for="project-name"
+                      >Nom du projet</label
+                    >
+                    <input
+                      class="form-input w-full bg-subtle-light dark:bg-background-dark border-none rounded-lg h-12 px-4 placeholder-placeholder-light dark:placeholder-placeholder-dark focus:ring-2 focus:ring-primary"
+                      id="project-name"
+                      placeholder="Nom du projet"
+                      type="text"
+                    />
+                  </div>
+                  <div>
+                    <label
+                      class="block text-sm font-medium text-content-light dark:text-content-dark mb-1"
+                      for="project-desc"
+                      >Description</label
+                    >
+                    <textarea
+                      class="form-input w-full bg-subtle-light dark:bg-background-dark border-none rounded-lg min-h-[120px] p-4 placeholder-placeholder-light dark:placeholder-placeholder-dark focus:ring-2 focus:ring-primary"
+                      id="project-desc"
+                      placeholder="Description du projet, technologies utilisées..."
+                    ></textarea>
+                  </div>
+                  <button
+                    class="text-primary font-medium text-sm"
+                    type="button"
+                  >
+                    + Ajouter un autre projet
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div
+              class="bg-white dark:bg-subtle-dark rounded-xl shadow-sm group"
+              id="interests-group"
+            >
+              <button
+                class="w-full flex justify-between items-center p-6 text-left"
+                onclick="toggleAccordion('interests-group')"
+                type="button"
+              >
+                <div class="flex items-center gap-4">
+                  <span class="material-symbols-outlined text-primary text-3xl"
+                    >favorite</span
+                  >
+                  <div>
+                    <h3 class="text-lg font-bold">Centres d'intérêt</h3>
+                    <p
+                      class="text-sm text-placeholder-light dark:text-placeholder-dark"
+                    >
+                      Vos hobbies et passions
+                    </p>
+                  </div>
+                </div>
+                <span class="material-symbols-outlined transition-transform"
+                  >expand_more</span
+                >
+              </button>
+              <div class="px-6 pb-6 hidden group-open:block">
+                <label
+                  class="block text-sm font-medium text-content-light dark:text-content-dark mb-1"
+                  for="interests"
+                  >Centres d'intérêt</label
+                >
+                <textarea
+                  class="form-input w-full bg-subtle-light dark:bg-background-dark border-none rounded-lg p-4 placeholder-placeholder-light dark:placeholder-placeholder-dark focus:ring-2 focus:ring-primary"
+                  id="interests"
+                  placeholder="ex: Photographie, Randonnée, Bénévolat..."
+                ></textarea>
+              </div>
+            </div>
+            <div>
+              <button
+                class="w-full bg-primary text-white font-bold text-lg py-4 px-4 rounded-lg hover:bg-primary/90 transition-colors flex items-center justify-center gap-2"
+                type="button"
+                onclick="ResumeApp.handleGenerate()"
+              >
+                <span>Générer le CV</span>
+                <span class="material-symbols-outlined">arrow_forward</span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </main>
+      <footer
+        class="bg-gray-100 dark:bg-gray-900/50 border-t border-gray-200 dark:border-gray-800"
+      >
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
+          <div
+            class="flex flex-col items-center justify-between gap-4 md:flex-row"
+          >
+            <div
+              class="flex flex-wrap justify-center gap-x-6 gap-y-2 md:order-2"
+            >
+              <a
+                class="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
+                href="#"
+                >Mentions légales</a
+              >
+              <a
+                class="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
+                href="#"
+                >Confidentialité</a
+              >
+            </div>
+            <p
+              class="text-center text-sm text-gray-600 dark:text-gray-400 md:order-1"
+            >
+              © 2025 ResumeBuilder. Un outil simple pour des CV parfaits.
+            </p>
+          </div>
+        </div>
+      </footer>
+      <script src="assets/js/resume.js"></script>
+    </div>
+    <script>
+      function toggleMobileMenu() {
+        const mobileMenu = document.getElementById("mobile-menu");
+        mobileMenu.classList.toggle("hidden");
+      }
+    </script>
+    <script>
+      function toggleAccordion(groupId) {
+        const group = document.getElementById(groupId);
+        const allGroups = document.querySelectorAll(".group");
+        allGroups.forEach((g) => {
+          if (g.id !== groupId) {
+            g.setAttribute("data-state", "closed");
+            const content = g.querySelector(".group-open\\:block");
+            if (content) content.style.display = "none";
+            const arrow = g.querySelector(
+              ".material-symbols-outlined.transition-transform"
+            );
+            if (arrow) arrow.classList.remove("group-open:rotate-180");
+          }
+        });
+        const currentState = group.getAttribute("data-state");
+        const content = group.querySelector(".group-open\\:block");
+        const arrow = group.querySelector(
+          ".material-symbols-outlined.transition-transform"
+        );
+        if (currentState === "closed" || !currentState) {
+          group.setAttribute("data-state", "open");
+          if (content) content.style.display = "block";
+          if (arrow) arrow.classList.add("group-open:rotate-180");
+        } else {
+          group.setAttribute("data-state", "closed");
+          if (content) content.style.display = "none";
+          if (arrow) arrow.classList.remove("group-open:rotate-180");
+        }
+      }
+      document.addEventListener("DOMContentLoaded", () => {
+        const accordions = document.querySelectorAll("[id$='-group']");
+        accordions.forEach((accordion, index) => {
+          const content = accordion.querySelector(".group-open\\:block");
+          const arrow = accordion.querySelector(
+            ".material-symbols-outlined.transition-transform"
+          );
+          if (index === 0) {
+            accordion.setAttribute("data-state", "open");
+            if (content) content.style.display = "block";
+            if (arrow) arrow.classList.add("group-open:rotate-180");
+          } else {
+            accordion.setAttribute("data-state", "closed");
+            if (content) content.style.display = "none";
+            if (arrow) arrow.classList.remove("group-open:rotate-180");
+          }
+        });
+
+        // Charger les données sauvegardées dans le formulaire
+        if (window.ResumeApp && window.ResumeApp.loadFormData) {
+          window.ResumeApp.loadFormData();
+        }
+      });
+    </script>
+  </body>
+</html>

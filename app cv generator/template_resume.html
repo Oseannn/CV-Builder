@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Stitch Design</title>
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: {
+                DEFAULT: "#1e293b",
+                50: "#f8fafc",
+                100: "#f1f5f9",
+                200: "#e2e8f0",
+                300: "#cbd5e1",
+                400: "#94a3b8",
+                500: "#64748b",
+                600: "#475569",
+                700: "#334155",
+                800: "#1e293b",
+                900: "#0f172a",
+              },
+              "background-light": "#f8fafc",
+              "background-dark": "#0b1120",
+              "text-light": "#0f172a",
+              "text-dark": "#f8fafc",
+            },
+            fontFamily: {
+              display: ["Inter"],
+            },
+            borderRadius: {
+              DEFAULT: "0.5rem",
+              lg: "0.75rem",
+              xl: "1rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body
+    class="font-display bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark"
+  >
+    <div class="flex flex-col min-h-screen">
+      <header
+        class="sticky top-0 z-10 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm border-b border-slate-200 dark:border-slate-800"
+      >
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex items-center justify-between h-16">
+            <a href="index.html" class="flex items-center gap-3">
+              <svg
+                class="h-8 w-8 text-primary-800 dark:text-primary-100"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.536L16.732 3.732z"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>
+              </svg>
+              <h2 class="text-xl font-semibold text-gray-900 dark:text-white">
+                ResumeBuilder
+              </h2>
+            </a>
+            <nav class="hidden md:flex items-center gap-8">
+              <a
+                class="text-base font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+                href="index.html"
+                >Accueil</a
+              >
+              <a
+                class="text-base font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+                href="template_resume.html"
+                >Modèles</a
+              >
+              <a
+                class="text-base font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+                href="annuaire.html"
+                >Annuaire</a
+              >
+            </nav>
+            <button
+              class="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              onclick="toggleMobileMenu()"
+              aria-label="Ouvrir le menu de navigation"
+            >
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M4 6h16M4 12h16M4 18h16"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                ></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <!-- Mobile menu -->
+        <div
+          id="mobile-menu"
+          class="md:hidden hidden bg-background-light dark:bg-background-dark border-t border-gray-200 dark:border-gray-700"
+        >
+          <div class="px-4 py-2 space-y-1">
+            <a
+              href="index.html"
+              class="block px-3 py-2 text-base font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg"
+              >Accueil</a
+            >
+            <a
+              href="template_resume.html"
+              class="block px-3 py-2 text-base font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg"
+              >Modèles</a
+            >
+            <a
+              href="annuaire.html"
+              class="block px-3 py-2 text-base font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg"
+              >Annuaire</a
+            >
+          </div>
+        </div>
+      </header>
+      <main class="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="max-w-screen-xl mx-auto">
+          <h1
+            class="text-4xl md:text-5xl font-extrabold tracking-tight mb-8 text-center"
+          >
+            Choisissez un modèle de CV
+          </h1>
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
+            <div
+              class="group relative overflow-hidden rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+            >
+              <div
+                class="w-full aspect-[3/4] bg-white mx-auto max-w-sm md:max-w-none"
+              >
+                <!-- Accent bar -->
+                <div class="h-3" style="background: #5e1037"></div>
+                <div class="p-5">
+                  <!-- Name / Title -->
+                  <div class="text-center pb-4">
+                    <h2 class="text-xl tracking-wide">
+                      Estelle
+                      <span class="font-extrabold" style="color: #5e1037"
+                        >DARCY</span
+                      >
+                    </h2>
+                    <p
+                      class="text-[11px] tracking-[0.25em] uppercase text-gray-500"
+                    >
+                      Chargée de communication
+                    </p>
+                  </div>
+                  <!-- Two columns preview -->
+                  <div class="grid grid-cols-3 gap-4">
+                    <div class="col-span-1 pr-3 border-r border-gray-200">
+                      <div class="space-y-4">
+                        <div>
+                          <h3
+                            class="text-[11px] font-bold tracking-[0.2em] uppercase"
+                            style="color: #5e1037"
+                          >
+                            Contact
+                          </h3>
+                          <ul class="mt-2 text-[11px] text-gray-700 space-y-1">
+                            <li>+33 6 00 00 00 00</li>
+                            <li>email@example.com</li>
+                            <li>linkedin.com/in/...</li>
+                            <li>Permis B</li>
+                          </ul>
+                        </div>
+                        <div>
+                          <h3
+                            class="text-[11px] font-bold tracking-[0.2em] uppercase"
+                            style="color: #5e1037"
+                          >
+                            Compétences
+                          </h3>
+                          <ul
+                            class="mt-2 text-[11px] text-gray-700 list-disc list-inside space-y-1"
+                          >
+                            <li>Négociation</li>
+                            <li>Community management</li>
+                            <li>Suite Adobe</li>
+                          </ul>
+                        </div>
+                        <div>
+                          <h3
+                            class="text-[11px] font-bold tracking-[0.2em] uppercase"
+                            style="color: #5e1037"
+                          >
+                            Langues
+                          </h3>
+                          <ul
+                            class="mt-2 text-[11px] text-gray-700 list-disc list-inside space-y-1"
+                          >
+                            <li>Français — courant</li>
+                            <li>Anglais — B2</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-span-2">
+                      <div class="space-y-4">
+                        <div>
+                          <div class="flex items-center gap-2">
+                            <div
+                              class="w-4 h-4 rounded-full flex items-center justify-center text-[10px] text-white"
+                              style="background: #5e1037"
+                            >
+                              i
+                            </div>
+                            <h3
+                              class="text-[11px] font-bold tracking-[0.2em] uppercase"
+                              style="color: #5e1037"
+                            >
+                              Profil
+                            </h3>
+                          </div>
+                          <p
+                            class="mt-2 text-[12px] text-gray-700 leading-5 line-clamp-3"
+                          >
+                            Professionnelle rigoureuse et autonome, spécialisée
+                            en communication 360°, gestion des réseaux sociaux
+                            et coordination d'événements.
+                          </p>
+                        </div>
+                        <div>
+                          <div class="flex items-center gap-2">
+                            <div
+                              class="w-4 h-4 rounded-full flex items-center justify-center text-[10px] text-white"
+                              style="background: #5e1037"
+                            >
+                              🎓
+                            </div>
+                            <h3
+                              class="text-[11px] font-bold tracking-[0.2em] uppercase"
+                              style="color: #5e1037"
+                            >
+                              Formation
+                            </h3>
+                          </div>
+                          <div
+                            class="mt-2 flex items-start justify-between gap-2 border-b border-gray-200 pb-2"
+                          >
+                            <div>
+                              <div class="text-[13px] font-semibold">
+                                Master marketing & communication
+                              </div>
+                              <div class="text-[12px] text-gray-600">
+                                Spécialité digital — ISCOM Paris
+                              </div>
+                            </div>
+                            <div
+                              class="text-[11px] text-gray-500 whitespace-nowrap"
+                            >
+                              2025
+                            </div>
+                          </div>
+                        </div>
+                        <div>
+                          <div class="flex items-center gap-2">
+                            <div
+                              class="w-4 h-4 rounded-full flex items-center justify-center text-[10px] text-white"
+                              style="background: #5e1037"
+                            >
+                              💼
+                            </div>
+                            <h3
+                              class="text-[11px] font-bold tracking-[0.2em] uppercase"
+                              style="color: #5e1037"
+                            >
+                              Expériences
+                            </h3>
+                          </div>
+                          <div
+                            class="mt-2 flex items-start justify-between gap-2"
+                          >
+                            <div>
+                              <div class="text-[13px] font-semibold">
+                                Chargée de communication
+                              </div>
+                              <div class="text-[12px] italic text-gray-600">
+                                Durance Média
+                              </div>
+                              <ul
+                                class="mt-1 text-[12px] text-gray-700 list-disc list-inside space-y-0.5"
+                              >
+                                <li>Pilotage du calendrier éditorial</li>
+                                <li>Animation des réseaux sociaux</li>
+                              </ul>
+                            </div>
+                            <div
+                              class="text-[11px] text-gray-500 whitespace-nowrap"
+                            >
+                              2023 – 2024
+                            </div>
+                          </div>
+                          <div
+                            class="mt-2 flex items-start justify-between gap-2"
+                          >
+                            <div>
+                              <div class="text-[13px] font-semibold">
+                                Assistante marketing
+                              </div>
+                              <div class="text-[12px] italic text-gray-600">
+                                Bio&Boh
+                              </div>
+                              <ul
+                                class="mt-1 text-[12px] text-gray-700 list-disc list-inside space-y-0.5"
+                              >
+                                <li>Organisation de salons</li>
+                                <li>Support aux campagnes</li>
+                              </ul>
+                            </div>
+                            <div
+                              class="text-[11px] text-gray-500 whitespace-nowrap"
+                            >
+                              2022 – 2023
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              >
+                <a
+                  href="create_resume.html?template=classic"
+                  class="bg-primary text-white font-bold text-sm px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors"
+                  >Sélectionner (Classique)</a
+                >
+              </div>
+            </div>
+            <div
+              class="group relative overflow-hidden rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+            >
+              <div
+                class="w-full aspect-[3/4] bg-white flex items-center justify-center mx-auto max-w-sm md:max-w-none"
+              >
+                <div class="p-6 w-full h-full grid grid-cols-3 gap-4">
+                  <div class="col-span-1 bg-gray-50 p-3 rounded">
+                    <h2 class="text-lg font-bold">Alex Martin</h2>
+                    <p class="text-xs text-gray-600">Développeur Front-end</p>
+                    <div class="mt-3 text-[11px] text-gray-600 space-y-1">
+                      <div>alex.martin@example.com</div>
+                      <div>+33 6 11 22 33 44</div>
+                      <div>linkedin.com/in/alexmartin</div>
+                    </div>
+                    <div class="mt-4">
+                      <h4
+                        class="text-[11px] font-semibold uppercase text-gray-700"
+                      >
+                        Compétences
+                      </h4>
+                      <ul
+                        class="mt-1 text-[11px] list-disc list-inside space-y-0.5"
+                      >
+                        <li>React, Next.js</li>
+                        <li>TypeScript</li>
+                        <li>Tailwind CSS</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="col-span-2 text-sm text-gray-700 space-y-3">
+                    <div>
+                      <span class="font-semibold">Profil</span> — Développeur
+                      passionné, 4 ans d'expérience en apps web performantes.
+                    </div>
+                    <div>
+                      <span class="font-semibold">Expérience</span> — Front-end
+                      Engineer, Startup X — React, API REST, tests.
+                    </div>
+                    <div>
+                      <span class="font-semibold">Formation</span> — M1
+                      Informatique, Université de Paris.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              >
+                <a
+                  href="create_resume.html?template=modern"
+                  class="bg-primary text-white font-bold text-sm px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors"
+                  >Sélectionner (Moderne)</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <script src="assets/js/resume.js"></script>
+      <footer
+        class="bg-gray-100 dark:bg-gray-900/50 border-t border-gray-200 dark:border-gray-800"
+      >
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
+          <div
+            class="flex flex-col items-center justify-between gap-4 md:flex-row"
+          >
+            <div
+              class="flex flex-wrap justify-center gap-x-6 gap-y-2 md:order-2"
+            >
+              <a
+                class="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
+                href="#"
+                >Mentions légales</a
+              >
+              <a
+                class="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
+                href="#"
+                >Confidentialité</a
+              >
+            </div>
+            <p
+              class="text-center text-sm text-gray-600 dark:text-gray-400 md:order-1"
+            >
+              © 2025 ResumeBuilder. Un outil simple pour des CV parfaits.
+            </p>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script>
+      function toggleMobileMenu() {
+        const mobileMenu = document.getElementById("mobile-menu");
+        mobileMenu.classList.toggle("hidden");
+      }
+    </script>
+  </body>
+</html>
