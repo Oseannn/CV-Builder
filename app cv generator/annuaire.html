@@ -3,12 +3,12 @@
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Company Directory</title>
+    <title>Annuaire Entreprises</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;display=swap"
       rel="stylesheet"
     />
     <link
@@ -21,37 +21,23 @@
         theme: {
           extend: {
             colors: {
-              primary: {
-                DEFAULT: "#1e293b",
-                50: "#f8fafc",
-                100: "#f1f5f9",
-                200: "#e2e8f0",
-                300: "#cbd5e1",
-                400: "#94a3b8",
-                500: "#64748b",
-                600: "#475569",
-                700: "#334155",
-                800: "#1e293b",
-                900: "#0f172a",
-              },
-              "background-light": "#f8fafc",
-              "background-dark": "#0b1120",
-              "text-light": "#0f172a",
-              "text-dark": "#f8fafc",
-              "foreground-light": "#0f172a",
-              "foreground-dark": "#f8fafc",
-              "muted-light": "#64748b",
-              "muted-dark": "#94a3b8",
-              "border-light": "#e2e8f0",
-              "border-dark": "#334155",
+              primary: "#1173d4",
+              "background-light": "#f6f7f8",
+              "background-dark": "#101922",
+              "foreground-light": "#101922",
+              "foreground-dark": "#f6f7f8",
+              "muted-light": "#6b7280",
+              "muted-dark": "#9ca3af",
+              "border-light": "#e5e7eb",
+              "border-dark": "#374151",
             },
             fontFamily: {
-              display: ["Inter", "sans-serif"],
+              display: ["Poppins", "sans-serif"],
             },
             borderRadius: {
-              DEFAULT: "0.5rem",
-              lg: "0.75rem",
-              xl: "1rem",
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
               full: "9999px",
             },
           },
@@ -62,78 +48,77 @@
       .material-symbols-outlined {
         font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
       }
+      .copy-btn {
+        cursor: pointer;
+      }
     </style>
   </head>
   <body
-    class="font-display bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark"
+    class="font-display bg-background-light dark:bg-background-dark text-foreground-light dark:text-foreground-dark"
   >
     <div class="relative flex min-h-screen w-full flex-col">
       <header
-        class="sticky top-0 z-10 flex items-center justify-between whitespace-nowrap border-b border-border-light dark:border-border-dark bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm px-4 sm:px-6 lg:px-8 py-3"
+        class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm"
       >
-        <div class="flex items-center gap-6">
-          <a href="index.html" class="flex items-center gap-3">
-            <svg
-              class="h-8 w-8 text-primary-800 dark:text-primary-100"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.536L16.732 3.732z"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              ></path>
-            </svg>
-            <h2 class="text-xl font-semibold text-gray-900 dark:text-white">
-              ResumeBuilder
-            </h2>
-          </a>
-          <nav class="hidden md:flex items-center gap-8">
-            <a
-              class="text-base font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
-              href="index.html"
-              >Accueil</a
-            >
-            <a
-              class="text-base font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
-              href="template_resume.html"
-              >Modèles</a
-            >
-            <a
-              class="text-base font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
-              href="annuaire.html"
-              >Annuaire</a
-            >
-          </nav>
-        </div>
-        <div class="flex items-center gap-2 sm:gap-4">
-          <button
-            class="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-            onclick="toggleMobileMenu()"
-            aria-label="Ouvrir le menu de navigation"
-          >
-            <svg
-              class="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="flex h-20 items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3">
+              <svg
+                class="h-8 w-8 text-primary-800 dark:text-primary-100"
+                fill="none"
+                stroke="currentColor"
                 stroke-width="2"
-                d="M4 6h16M4 12h16M4 18h16"
-              ></path>
-            </svg>
-          </button>
-          <button
-            class="px-4 py-2 text-sm font-semibold border border-border-light dark:border-border-dark rounded-lg hover:bg-primary/10 dark:hover:bg-primary/20 transition-colors"
-          >
-            Connexion
-          </button>
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.536L16.732 3.732z"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>
+              </svg>
+              <h2 class="text-xl font-semibold text-gray-900 dark:text-white">
+                Rynlau cv
+              </h2>
+            </a>
+            <nav class="hidden md:flex items-center gap-8">
+              <a
+                class="text-base font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+                href="index.html"
+                >Accueil</a
+              >
+              <a
+                class="text-base font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+                href="template_resume.html"
+                >Modèles</a
+              >
+              <a
+                class="text-base font-medium text-primary dark:text-primary transition-colors font-semibold"
+                href="annuaire.html"
+                >Annuaire</a
+              >
+            </nav>
+            <div class="flex items-center gap-4">
+              <button
+                class="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                onclick="toggleMobileMenu()"
+              >
+                <svg
+                  class="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 6h16M4 12h16M4 18h16"
+                  ></path>
+                </svg>
+              </button>
+            </div>
+          </div>
         </div>
         <!-- Mobile menu -->
         <div
@@ -153,7 +138,7 @@
             >
             <a
               href="annuaire.html"
-              class="block px-3 py-2 text-base font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg"
+              class="block px-3 py-2 text-base font-medium text-primary dark:text-primary hover:bg-primary/10 dark:hover:bg-primary/20 rounded-lg font-semibold"
               >Annuaire</a
             >
           </div>
@@ -161,15 +146,16 @@
       </header>
       <main class="flex-1">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-          <div class="max-w-4xl mx-auto">
+          <div class="max-w-5xl mx-auto">
             <div class="text-center mb-8 sm:mb-12">
               <h1
                 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight"
               >
-                Annuaire d'entreprises
+                Annuaire des Entreprises Gabonaises
               </h1>
               <p class="mt-2 text-lg text-muted-light dark:text-muted-dark">
-                Recherchez les adresses email et détails des entreprises.
+                Trouvez les informations de recrutement des entreprises au
+                Gabon.
               </p>
             </div>
             <div class="mb-8">
@@ -181,192 +167,493 @@
                 </span>
                 <input
                   class="w-full pl-12 pr-4 py-3 rounded-xl border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                  placeholder="Rechercher des entreprises, ex: 'Solutions Tech Inc.'"
+                  placeholder="Rechercher une entreprise..."
                   type="text"
                 />
               </div>
             </div>
             <div class="flex flex-wrap items-center gap-4 mb-8">
-              <button
-                class="flex items-center gap-2 px-4 py-2 text-sm font-medium border border-border-light dark:border-border-dark rounded-lg hover:bg-primary/10 dark:hover:bg-primary/20 transition-colors"
-              >
-                <span>Secteur</span>
-                <span class="material-symbols-outlined text-base">
+              <div class="relative">
+                <select
+                  class="pl-4 pr-10 py-2 text-sm font-medium border border-border-light dark:border-border-dark rounded-lg hover:bg-primary/10 dark:hover:bg-primary/20 transition-colors appearance-none bg-transparent"
+                >
+                  <option>Tout</option>
+                  <option>Assurance</option>
+                  <option>Banque</option>
+                  <option>BTP</option>
+                  <option>Commerce de gros</option>
+                  <option>Distribution et commerce</option>
+                  <option>Distribution et services</option>
+                  <option>Gestion portuaire et logistique</option>
+                  <option>Industrie manufacturière</option>
+                  <option>Microfinance</option>
+                  <option>Mines</option>
+                  <option>Pétrole et gaz</option>
+                  <option>Production d'énergie</option>
+                  <option>Sécurité privée</option>
+                  <option>Télécommunications</option>
+                </select>
+                <span
+                  class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-base pointer-events-none"
+                >
                   expand_more
                 </span>
-              </button>
-              <button
-                class="flex items-center gap-2 px-4 py-2 text-sm font-medium border border-border-light dark:border-border-dark rounded-lg hover:bg-primary/10 dark:hover:bg-primary/20 transition-colors"
-              >
-                <span>Trier par: Alphabétique</span>
-                <span class="material-symbols-outlined text-base">
-                  expand_more
-                </span>
-              </button>
+              </div>
             </div>
-            <div class="space-y-4">
-              <h2 class="text-2xl font-bold tracking-tight">Résultats</h2>
-              <div
-                class="divide-y divide-border-light dark:divide-border-dark border border-border-light dark:border-border-dark rounded-xl overflow-hidden"
-              >
-                <div
-                  class="p-4 sm:p-6 grid grid-cols-1 sm:grid-cols-[1fr_auto] items-center gap-4 hover:bg-primary/5 dark:hover:bg-primary/10 transition-colors"
+            <div class="space-y-6" id="companies-container">
+              <!-- Companies will be rendered dynamically by JavaScript -->
+            </div>
+            <div class="flex items-center justify-center pt-8">
+              <nav class="flex items-center gap-2">
+                <a
+                  class="flex items-center justify-center size-9 rounded-lg hover:bg-primary/10 dark:hover:bg-primary/20 text-muted-light dark:text-muted-dark"
+                  href="#"
                 >
-                  <div>
-                    <h3 class="text-lg font-semibold">Solutions Tech Inc.</h3>
-                    <p class="text-sm text-muted-light dark:text-muted-dark">
-                      Technologie
-                    </p>
-                  </div>
-                  <button
-                    class="px-4 py-2 text-sm font-semibold text-primary border border-primary rounded-lg hover:bg-primary hover:text-white dark:hover:text-foreground-dark transition-colors justify-self-start sm:justify-self-end"
-                  >
-                    Voir détails
-                  </button>
-                </div>
-                <div
-                  class="p-4 sm:p-6 grid grid-cols-1 sm:grid-cols-[1fr_auto] items-center gap-4 hover:bg-primary/5 dark:hover:bg-primary/10 transition-colors"
+                  <span class="material-symbols-outlined text-xl">
+                    chevron_left
+                  </span>
+                </a>
+                <a
+                  class="flex items-center justify-center size-9 rounded-lg bg-primary text-white text-sm font-bold"
+                  href="#"
+                  >1</a
                 >
-                  <div>
-                    <h3 class="text-lg font-semibold">
-                      Investissements Mondiaux SARL
-                    </h3>
-                    <p class="text-sm text-muted-light dark:text-muted-dark">
-                      Finance
-                    </p>
-                  </div>
-                  <button
-                    class="px-4 py-2 text-sm font-semibold text-primary border border-primary rounded-lg hover:bg-primary hover:text-white dark:hover:text-foreground-dark transition-colors justify-self-start sm:justify-self-end"
-                  >
-                    Voir détails
-                  </button>
-                </div>
-                <div
-                  class="p-4 sm:p-6 grid grid-cols-1 sm:grid-cols-[1fr_auto] items-center gap-4 hover:bg-primary/5 dark:hover:bg-primary/10 transition-colors"
+                <a
+                  class="flex items-center justify-center size-9 rounded-lg hover:bg-primary/10 dark:hover:bg-primary/20 text-sm font-medium"
+                  href="#"
+                  >2</a
                 >
-                  <div>
-                    <h3 class="text-lg font-semibold">Groupe SantéPremier</h3>
-                    <p class="text-sm text-muted-light dark:text-muted-dark">
-                      Santé
-                    </p>
-                  </div>
-                  <button
-                    class="px-4 py-2 text-sm font-semibold text-primary border border-primary rounded-lg hover:bg-primary hover:text-white dark:hover:text-foreground-dark transition-colors justify-self-start sm:justify-self-end"
-                  >
-                    Voir détails
-                  </button>
-                </div>
-                <div
-                  class="p-4 sm:p-6 grid grid-cols-1 sm:grid-cols-[1fr_auto] items-center gap-4 hover:bg-primary/5 dark:hover:bg-primary/10 transition-colors"
+                <a
+                  class="flex items-center justify-center size-9 rounded-lg hover:bg-primary/10 dark:hover:bg-primary/20 text-sm font-medium"
+                  href="#"
+                  >3</a
                 >
-                  <div>
-                    <h3 class="text-lg font-semibold">Emporium Commerce</h3>
-                    <p class="text-sm text-muted-light dark:text-muted-dark">
-                      Commerce de détail
-                    </p>
-                  </div>
-                  <button
-                    class="px-4 py-2 text-sm font-semibold text-primary border border-primary rounded-lg hover:bg-primary hover:text-white dark:hover:text-foreground-dark transition-colors justify-self-start sm:justify-self-end"
-                  >
-                    Voir détails
-                  </button>
-                </div>
-                <div
-                  class="p-4 sm:p-6 grid grid-cols-1 sm:grid-cols-[1fr_auto] items-center gap-4 hover:bg-primary/5 dark:hover:bg-primary/10 transition-colors"
+                <a
+                  class="flex items-center justify-center size-9 rounded-lg hover:bg-primary/10 dark:hover:bg-primary/20 text-muted-light dark:text-muted-dark"
+                  href="#"
                 >
-                  <div>
-                    <h3 class="text-lg font-semibold">
-                      Innovations Pédagogiques SARL
-                    </h3>
-                    <p class="text-sm text-muted-light dark:text-muted-dark">
-                      Éducation
-                    </p>
-                  </div>
-                  <button
-                    class="px-4 py-2 text-sm font-semibold text-primary border border-primary rounded-lg hover:bg-primary hover:text-white dark:hover:text-foreground-dark transition-colors justify-self-start sm:justify-self-end"
-                  >
-                    Voir détails
-                  </button>
-                </div>
-              </div>
-              <div class="flex items-center justify-center pt-8">
-                <nav class="flex items-center gap-2">
-                  <a
-                    class="flex items-center justify-center size-9 rounded-lg hover:bg-primary/10 dark:hover:bg-primary/20 text-muted-light dark:text-muted-dark"
-                    href="#"
-                  >
-                    <span class="material-symbols-outlined text-xl">
-                      chevron_left
-                    </span>
-                  </a>
-                  <a
-                    class="flex items-center justify-center size-9 rounded-lg bg-primary text-white text-sm font-bold"
-                    href="#"
-                    >1</a
-                  >
-                  <a
-                    class="flex items-center justify-center size-9 rounded-lg hover:bg-primary/10 dark:hover:bg-primary/20 text-sm font-medium"
-                    href="#"
-                    >2</a
-                  >
-                  <a
-                    class="flex items-center justify-center size-9 rounded-lg hover:bg-primary/10 dark:hover:bg-primary/20 text-sm font-medium"
-                    href="#"
-                    >3</a
-                  >
-                  <span
-                    class="flex items-center justify-center size-9 text-sm font-medium text-muted-light dark:text-muted-dark"
-                    >...</span
-                  >
-                  <a
-                    class="flex items-center justify-center size-9 rounded-lg hover:bg-primary/10 dark:hover:bg-primary/20 text-sm font-medium"
-                    href="#"
-                    >10</a
-                  >
-                  <a
-                    class="flex items-center justify-center size-9 rounded-lg hover:bg-primary/10 dark:hover:bg-primary/20 text-muted-light dark:text-muted-dark"
-                    href="#"
-                  >
-                    <span class="material-symbols-outlined text-xl">
-                      chevron_right
-                    </span>
-                  </a>
-                </nav>
-              </div>
+                  <span class="material-symbols-outlined text-xl">
+                    chevron_right
+                  </span>
+                </a>
+              </nav>
             </div>
           </div>
         </div>
-      </main>
-      <footer
-        class="bg-gray-100 dark:bg-gray-900/50 border-t border-gray-200 dark:border-gray-800"
-      >
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
-          <div
-            class="flex flex-col items-center justify-between gap-4 md:flex-row"
-          >
-            <div
-              class="flex flex-wrap justify-center gap-x-6 gap-y-2 md:order-2"
-            >
-              <a
-                class="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
-                href="#"
-                >Mentions légales</a
-              >
-              <a
-                class="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
-                href="#"
-                >Confidentialité</a
-              >
-            </div>
-            <p
-              class="text-center text-sm text-gray-600 dark:text-gray-400 md:order-1"
-            >
-              © 2025 ResumeBuilder. Un outil simple pour des CV parfaits.
-            </p>
-          </div>
-        </div>
-      </footer>
     </div>
+    <script>
+      // Sample data for companies
+      const companies = [
+        {
+          name: "Gabon Oil Company (GOC)",
+          domain: "Pétrole et gaz",
+          status: "Actif",
+          description: "Entreprise publique gabonaise d'exploration et de production d'hydrocarbures, créée en 2011. Elle a récemment acquis Assala Energy, renforçant ainsi sa position sur le marché.",
+          emails: ["ressources.humaines@gabonoil.com"]
+        },
+        {
+          name: "Maurel & Prom Gabon",
+          domain: "Pétrole et gaz",
+          status: "Actif",
+          description: "Filiale du groupe Maurel & Prom, spécialisée dans l'exploration et la production d'hydrocarbures au Gabon.",
+          emails: ["recrutement@gabonmp.com"]
+        },
+        {
+          name: "BW Energy Gabon",
+          domain: "Pétrole et gaz",
+          status: "Actif",
+          description: "Entreprise spécialisée dans l'acquisition, le développement et la production de champs pétroliers offshore. Présente au Gabon, elle met l'accent sur l'emploi local.",
+          emails: ["recruitment.gabon@bwenergy.no", "internship.gabon@bwenergy.no"]
+        },
+        {
+          name: "FOBERD Gabon",
+          domain: "Commerce de gros",
+          status: "Actif",
+          description: "Entreprise gabonaise opérant dans le commerce de gros de produits alimentaires et de matériaux de construction.",
+          emails: ["recrutement@foberd-gabon.com", "sec.foberd@foberd-gabon.com"]
+        },
+        {
+          name: "Logistique Services Gabon (LSG)",
+          domain: "Gestion portuaire et logistique",
+          status: "Actif",
+          description: "Opérateur majeur du transit et de la consignation de navires au Gabon, avec des agences à Libreville et Port-Gentil.",
+          emails: ["recrutement.logistique@lsg-gabon.com"]
+        },
+        {
+          name: "Gabon Power Company (GPC)",
+          domain: "Production d'énergie",
+          status: "Actif",
+          description: "Filiale du Fonds Gabonais d'Investissements Stratégiques (FGIS), dédiée au développement de projets énergétiques au Gabon.",
+          emails: ["recrutementtalent@gpc-gabon.com"]
+        },
+        {
+          name: "SEEG Gabon",
+          domain: "Production d'énergie",
+          status: "Actif",
+          description: "Société d'Énergie et d'Eau du Gabon (SEEG) est le principal opérateur gabonais de production, transport et distribution d'électricité et d'eau potable, couvrant l'ensemble du territoire national. Site carrières : seeg-talentsource.com",
+          emails: ["https://seeg-talentsource.com"]
+        },
+        {
+          name: "Union Gabonaise de Banque (UGB)",
+          domain: "Banque",
+          status: "Actif",
+          description: "Filiale du groupe Attijariwafa bank, offrant une gamme complète de services bancaires aux particuliers et aux entreprises.",
+          emails: ["contact-ugb@ugb-banque.com", "contact@ugb-banque.com"]
+        },
+        {
+          name: "EMF SODEC",
+          domain: "Microfinance",
+          status: "Actif",
+          description: "Établissement de microfinance de deuxième catégorie agréé par la Commission Bancaire des États de l'Afrique centrale, qui a pour mission de construire un socle économique et social solide pour les familles, les petites et moyennes entreprises, et toutes les communautés négligées par le système financier traditionnel.",
+          emails: ["recrutement.sodec@gmail.com"]
+        },
+        {
+          name: "Cofinacorp Gabon",
+          domain: "Banque",
+          status: "Actif",
+          description: "Société gabonaise offrant des services financiers, notamment des solutions d'assurance et de financement adaptées aux besoins des particuliers et des entreprises.",
+          emails: ["recrutement@cofinacorp.com", "recrutement_csg@cofinacorp.com"]
+        },
+        {
+          name: "Ecobank Gabon",
+          domain: "Banque",
+          status: "Actif",
+          description: "Filiale gabonaise du groupe bancaire panafricain Ecobank, offrant une gamme complète de services bancaires aux particuliers, entreprises et institutions.",
+          emails: ["allega-hr@ecobank.com"]
+        },
+        {
+          name: "UBA Gabon",
+          domain: "Banque",
+          status: "Actif",
+          description: "United Bank for Africa - filiale gabonaise offrant des services bancaires universels, du crédit, de l'épargne et des solutions financières innovantes.",
+          emails: ["capital.humain@ubagroup.com"]
+        },
+        {
+          name: "AFG Bank Gabon",
+          domain: "Banque",
+          status: "Actif",
+          description: "Banque gabonaise proposant des services bancaires complets incluant comptes courants, épargne, crédits et solutions digitales pour particuliers et entreprises.",
+          emails: ["rh.recrutement@afgbank.ga"]
+        },
+        {
+          name: "SUNU Assurances Gabon",
+          domain: "Assurance",
+          status: "Actif",
+          description: "Compagnie d'assurance gabonaise spécialisée dans les assurances incendie, accidents et risques divers (IARD), offrant des solutions de protection pour les particuliers et les entreprises.",
+          emails: ["recrutement.iardgabon@sunu-groupe.com"]
+        },
+        {
+          name: "NSIA Assurances Gabon",
+          domain: "Assurance",
+          status: "Actif",
+          description: "Leader de l'assurance vie et des assurances commerciales au Gabon, offrant des produits d'épargne, de prévoyance et de protection pour les particuliers et les entreprises.",
+          emails: ["recrutecommercialevie@nsiaassurances.com"]
+        },
+        {
+          name: "ASSINCO",
+          domain: "Assurance",
+          status: "Actif",
+          description: "Société d'assurance gabonaise proposant des solutions complètes en assurance vie, automobile, habitation et responsabilité civile pour les particuliers et les professionnels.",
+          emails: ["recrutement.assinco@assinco-sa.com"]
+        },
+        {
+          name: "Amifa Gabon",
+          domain: "Microfinance",
+          status: "Actif",
+          description: "Atlantique Microfinance for Africa Gabon (AMIFA GA) est un nouvel établissement de Microfinance de 2è catégorie installé au Gabon, et filiale du Groupe Banque Centrale Populaire du Maroc.",
+          emails: ["recrutement.gabon@amifa.co.ma"]
+        },
+        {
+          name: "Edge Manufacturing Gabon",
+          domain: "Industrie manufacturière",
+          status: "Actif",
+          description: "Entreprise spécialisée dans la fabrication de produits industriels au Gabon.",
+          emails: ["ressourceshumaines@edgemfgabon.com"]
+        },
+        {
+          name: "Finam Gabon",
+          domain: "Microfinance",
+          status: "Actif",
+          description: "Finam est le premier établissement de microfinance de 2ème catégorie, au Gabon, agréé par le Ministère de l'Économie et des Finances après avis conforme de la COBAC.",
+          emails: ["mngono@finamgabon.com", "recrutement@finamgabon.com"]
+        },
+        {
+          name: "Bamboo EMF Gabon",
+          domain: "Microfinance",
+          status: "Actif",
+          description: "Bamboo EMF est une microfinance de deuxième catégorie qui propose des services financiers au plus grand nombre en instaurant l’inclusion financière par le digital.",
+          emails: ["recrutement.rh@bamboo-emf.com"]
+        },
+        {
+          name: "Groupe Sogafric Gabon",
+          domain: "Distribution et services",
+          status: "Actif",
+          description: "Entreprise gabonaise opérant dans la distribution de produits de consommation et offrant divers services aux entreprises et aux particuliers.",
+          emails: ["contact.rh@groupesogafric.com"]
+        },
+        {
+          name: "Petrogabon",
+          domain: "Pétrole et gaz",
+          status: "Actif",
+          description: "Société gabonaise opérant dans le secteur pétrolier et gazier, impliquée dans l'exploration, la production et la distribution d'hydrocarbures.",
+          emails: ["ressources-humaines@petrogabon.com"]
+        },
+        {
+          name: "Assala Energy Gabon",
+          domain: "Pétrole et gaz",
+          status: "Actif",
+          description: "Entreprise internationale spécialisée dans l'exploration et la production d'hydrocarbures, avec des opérations au Gabon.",
+          emails: ["recrutement@assalaenergy.com", "Assala-Stage@assalaenergy.com"]
+        },
+        {
+          name: "Vivo Energy Gabon",
+          domain: "Pétrole et gaz",
+          status: "Actif",
+          description: "Filiale gabonaise de Vivo Energy, distributeur exclusif des produits Shell au Gabon, spécialisée dans la distribution de carburants et lubrifiants.",
+          emails: ["ressources.humaines@vivoenergy.com"]
+        },
+        {
+          name: "VAALCO Gabon",
+          domain: "Pétrole et gaz",
+          status: "Actif",
+          description: "Compagnie pétrolière américaine opérant au Gabon, spécialisée dans l'exploration, le développement et la production de pétrole et gaz naturel.",
+          emails: ["hrgabon@vaalco.com"]
+        },
+        {
+          name: "Perenco Gabon",
+          domain: "Pétrole et gaz",
+          status: "Actif",
+          description: "Entreprise pétrolière internationale opérant au Gabon, impliquée dans l'exploration, la production et la distribution d'hydrocarbures.",
+          emails: ["recrutement-perenco-gabon@ga.perenco.com", "recrutement.gabon@perenco.com"]
+        },
+        // Existing companies
+        {
+          name: "TotalEnergies EP Gabon",
+          domain: "Pétrole et Gaz",
+          status: "Recrute",
+          description: "Leader du secteur pétrolier au Gabon, opérant dans l'exploration et la production d'hydrocarbures.",
+          emails: ["contact.gabon@totalenergies.com"]
+        },
+        {
+          name: "Comilog (Compagnie Minière de l'Ogooué)",
+          domain: "Mines",
+          status: "Spontanée",
+          description: "Filiale du groupe Eramet, c'est l'un des plus grands producteurs de manganèse au monde.",
+          emails: ["recrutement.comilog@eramet-comilog.com"]
+        },
+        {
+          name: "Gabon Telecom",
+          domain: "Télécommunications",
+          status: "Recrute",
+          description: "Opérateur historique des télécommunications au Gabon, offrant des services de téléphonie mobile, fixe et internet.",
+          emails: ["rh.recrutement@gabontelecom.ga", "recrutement@moov-africa.cl"]
+        },
+        {
+          name: "BGFI Bank Gabon",
+          domain: "Banque",
+          status: "Spontanée",
+          description: "Une des principales banques commerciales du pays, offrant une large gamme de services financiers.",
+          emails: ["recrutement.gabon@bgfigroupe.com", "recrutement.bgfibankgabon@bgfi.com"]
+        },
+        {
+          name: "SOCOBA-EDTPL",
+          domain: "BTP",
+          status: "Ne recrute pas",
+          description: "Société de construction et de BTP, réalisant de nombreux projets d'infrastructure au Gabon.",
+          emails: ["contact@socoba.com", "socoba@socoba-edtpl.com"]
+        },
+        {
+          name: "Ceca-Gadiss",
+          domain: "Commerce et Distribution",
+          status: "Recrute",
+          description: "Groupe leader dans la grande distribution au Gabon avec plusieurs enseignes de supermarchés.",
+          emails: ["recrutement@ceca-gadiss.com", "emploi@cecagadis.com"]
+        },
+        {
+          name: "Olam Palm Gabon",
+          domain: "Agro-industrie",
+          status: "Recrute",
+          description: "Acteur majeur dans la production d'huile de palme durable au Gabon.",
+          emails: ["hr.gabon@olamnet.com"]
+        },
+        // New companies
+        {
+          name: "Oprag (Office des Ports et Rades du Gabon)",
+          domain: "Gestion portuaire et logistique",
+          status: "Actif",
+          description: "Oprag est l'autorité portuaire gabonaise responsable de la gestion, de l'exploitation et du développement des infrastructures portuaires du pays.",
+          emails: ["info@oprag.ga"]
+        },
+        {
+          name: "SMP Drilling",
+          domain: "Pétrole et gaz",
+          status: "Actif",
+          description: "SMP Drilling est une entreprise spécialisée dans les services de forage pour l'industrie pétrolière et gazière, ainsi que pour le marché géothermique. Elle opère également en Afrique, avec des bureaux au Gabon, au Congo et en Angola.",
+          emails: ["sandra.erramouspe@smp-drilling.com"]
+        },
+        {
+          name: "Ivindo Iron",
+          domain: "Exploitation minière du fer",
+          status: "Actif",
+          description: "Ivindo Iron est une coentreprise entre le gouvernement gabonais et Fortescue, visant à développer le projet minier de Belinga. L'entreprise se concentre sur l'exploitation responsable des ressources en minerai de fer du Gabon, tout en favorisant la croissance économique locale et le bien-être des communautés.",
+          emails: ["recruitment@ivindoiron.com"]
+        },
+        {
+          name: "Owendo Mineral Port (OMP)",
+          domain: "Gestion portuaire et logistique",
+          status: "Actif",
+          description: "OMP est un port minéralier situé à Owendo, Gabon, spécialisé dans le traitement et l'expédition de minerais. Il joue un rôle clé dans la logistique des exportations minérales du pays.",
+          emails: ["recrutement.omp@arisenet.com"]
+        },
+        {
+          name: "Airtel Gabon",
+          domain: "Télécommunications",
+          status: "Actif",
+          description: "Airtel Gabon est un opérateur de télécommunications mobile, offrant des services de téléphonie mobile, d'internet et de solutions numériques aux particuliers et aux entreprises.",
+          emails: ["recrutements@ga.aitel.com"]
+        },
+        {
+          name: "G4S Gabon",
+          domain: "Sécurité privée",
+          status: "Actif",
+          description: "G4S est une entreprise internationale spécialisée dans les services de sécurité. Au Gabon, elle propose des solutions de sécurité adaptées aux besoins des entreprises et des particuliers.",
+          emails: ["gabon.recrutement@g4s.com"]
+        },
+        {
+          name: "Gabon Mining",
+          domain: "Mines",
+          status: "Actif",
+          description: "Gabon Mining est une entreprise opérant dans le secteur minier au Gabon, impliquée dans l'extraction et la commercialisation de ressources minérales.",
+          emails: ["recrutements@gabonmining.com"]
+        }
+      ];
+
+      let currentPage = 1;
+      const itemsPerPage = 9;
+      let filteredCompanies = companies;
+
+      // Initialize the page
+      function init() {
+        renderCompanies();
+        updatePagination();
+        setupEventListeners();
+      }
+
+      // Render companies based on current page and filters
+      function renderCompanies() {
+        const container = document.getElementById('companies-container');
+        const startIndex = (currentPage - 1) * itemsPerPage;
+        const endIndex = startIndex + itemsPerPage;
+        const companiesToShow = filteredCompanies.slice(startIndex, endIndex);
+
+        container.innerHTML = '';
+
+        companiesToShow.forEach(company => {
+          const companyHTML = `
+            <div class="border border-border-light dark:border-border-dark rounded-xl p-4 sm:p-6">
+              <div class="flex flex-col sm:flex-row justify-between sm:items-start gap-4">
+                <div>
+                  <h3 class="text-xl font-bold">${company.name}</h3>
+                  <p class="text-sm text-muted-light dark:text-muted-dark mt-1">${company.domain}</p>
+                </div>
+                <span class="inline-flex items-center px-3 py-1 text-sm font-medium rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300">
+                  ${company.status}
+                </span>
+              </div>
+              <p class="mt-4 text-foreground-light dark:text-foreground-dark">${company.description}</p>
+              <div class="mt-4">
+                <h4 class="font-semibold">Emails de recrutement :</h4>
+                <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mt-2">
+                  ${company.emails.map(email => `
+                    <div class="flex items-center gap-2 text-sm text-primary dark:text-primary">
+                      <span class="material-symbols-outlined text-base">${email.startsWith('http') ? 'link' : 'email'}</span>
+                      <span>${email}</span>
+                      <button class="copy-btn flex items-center gap-1.5 px-2.5 py-1 text-xs font-semibold rounded-full bg-primary/10 text-primary hover:bg-primary/20 dark:bg-primary/20 dark:text-primary dark:hover:bg-primary/30 transition-colors" onclick="navigator.clipboard.writeText('${email}')">
+                        <span class="material-symbols-outlined text-sm">content_copy</span>
+                        <span>${email.startsWith('http') ? 'Copier le lien' : "Copier l'e-mail"}</span>
+                      </button>
+                    </div>
+                  `).join('')}
+                </div>
+              </div>
+            </div>
+          `;
+          container.innerHTML += companyHTML;
+        });
+      }
+
+      // Update pagination controls
+      function updatePagination() {
+        const totalPages = Math.ceil(filteredCompanies.length / itemsPerPage);
+        const paginationContainer = document.querySelector('.flex.items-center.justify-center.pt-8 nav');
+
+        let paginationHTML = `
+          <a class="flex items-center justify-center size-9 rounded-lg hover:bg-primary/10 dark:hover:bg-primary/20 text-muted-light dark:text-muted-dark ${currentPage === 1 ? 'pointer-events-none opacity-50' : 'cursor-pointer'}" onclick="changePage(${currentPage - 1})">
+            <span class="material-symbols-outlined text-xl">chevron_left</span>
+          </a>
+        `;
+
+        for (let i = 1; i <= totalPages; i++) {
+          if (i === currentPage) {
+            paginationHTML += `<a class="flex items-center justify-center size-9 rounded-lg bg-primary text-white text-sm font-bold" href="#">${i}</a>`;
+          } else if (i === 1 || i === totalPages || Math.abs(i - currentPage) <= 1) {
+            paginationHTML += `<a class="flex items-center justify-center size-9 rounded-lg hover:bg-primary/10 dark:hover:bg-primary/20 text-sm font-medium cursor-pointer" onclick="changePage(${i})">${i}</a>`;
+          } else if (i === currentPage - 2 || i === currentPage + 2) {
+            paginationHTML += `<span class="flex items-center justify-center size-9 text-muted-light dark:text-muted-dark">...</span>`;
+          }
+        }
+
+        paginationHTML += `
+          <a class="flex items-center justify-center size-9 rounded-lg hover:bg-primary/10 dark:hover:bg-primary/20 text-muted-light dark:text-muted-dark ${currentPage === totalPages ? 'pointer-events-none opacity-50' : 'cursor-pointer'}" onclick="changePage(${currentPage + 1})">
+            <span class="material-symbols-outlined text-xl">chevron_right</span>
+          </a>
+        `;
+
+        paginationContainer.innerHTML = paginationHTML;
+      }
+
+      // Change page
+      function changePage(page) {
+        const totalPages = Math.ceil(filteredCompanies.length / itemsPerPage);
+        if (page >= 1 && page <= totalPages) {
+          currentPage = page;
+          renderCompanies();
+          updatePagination();
+          window.scrollTo(0, 0);
+        }
+      }
+
+      // Filter companies
+      function filterCompanies() {
+        const searchTerm = document.querySelector('input[type="text"]').value.toLowerCase();
+        const domainFilter = document.querySelector('select').value;
+
+        filteredCompanies = companies.filter(company => {
+          const matchesSearch = company.name.toLowerCase().includes(searchTerm) ||
+                              company.description.toLowerCase().includes(searchTerm) ||
+                              company.emails.some(email => email.toLowerCase().includes(searchTerm));
+
+          const matchesDomain = domainFilter === 'Tout' || company.domain === domainFilter;
+
+          return matchesSearch && matchesDomain;
+        });
+
+        currentPage = 1;
+        renderCompanies();
+        updatePagination();
+      }
+
+      // Setup event listeners
+      function setupEventListeners() {
+        document.querySelector('input[type="text"]').addEventListener('input', filterCompanies);
+        document.querySelectorAll('select').forEach(select => {
+          select.addEventListener('change', filterCompanies);
+        });
+      }
+
+      // Initialize when DOM is loaded
+      document.addEventListener('DOMContentLoaded', init);
+    </script>
     <script>
       function toggleMobileMenu() {
         const mobileMenu = document.getElementById("mobile-menu");
